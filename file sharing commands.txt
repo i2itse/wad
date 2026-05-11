@@ -1,0 +1,70 @@
+1. create two folders on Desktop
+   sender 
+   reciever 
+
+
+2.setup VM1 
+
+  1.open terminal in "sender-vm" folder
+    run command (vagrant init ubuntu/jammy64)
+
+  2.open vagrant file
+    add this    config.vm.network "private_network", ip: "192.168.56.10"
+    below this 
+                config.vm.box = "ubuntu/jammy64"
+ 
+  3.(vagrant up) 
+
+
+
+
+setup VM2 
+
+ 1B).open terminal in "receiver" folder
+    run command (vagrant init ubuntu/jammy64)
+
+  2B).open vagrant file
+    add this    config.vm.network "private_network", ip: "192.168.56.20"
+    below this 
+                config.vm.box = "ubuntu/jammy64"
+ 
+  3B) .(vagrant up) 
+
+
+
+
+3. open receiver folder 
+   open    .vagrant > machines > default > virtualbox > private_key(copy it)
+   
+   paste it into (sender folder)and rename to (reciever_key)
+
+
+
+4. open sender terminal 
+   vagrant ssh
+
+5.create file 
+  nano file.txt
+  hello from sender-vm
+  ls 
+
+
+6.SSh key 
+  Copy key to Linux home directory:  (cp /vagrant/receiver_key ~/)   <----paste it
+
+  Set secure permission:  chmod 600 ~/receiver_key          <----paste it
+
+
+  
+7.TRANSFER FILE USING SCP
+
+ scp -i ~/receiver_key file.txt vagrant@192.168.56.20:/home/vagrant/
+
+
+
+8.to verify file in receiver 
+  run (vagrant ssh)
+      (ls)
+      (cat file.txt)
+
+
