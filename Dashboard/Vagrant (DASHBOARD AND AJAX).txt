@@ -1,0 +1,24 @@
+Vagrant (DASHBOARD AND AJAX)
+
+
+1. Create folder on desktop
+
+2. Search vagrant box on browser and open publicly available catalog
+3. Search ubuntu jammy or ubuntu bionic
+
+4. Copy step 1 url
+5. Open created folder in terminal and paste the url
+
+6. Vagrant file is created edit it by removing # and space from localhost line where ip add is there 
+7. Run vagrant up
+8. Run vagrant ssh
+9. Sudo apt update
+10.Sudo apt install apache2 -y
+11. Copy index.html file into created folder
+12. Then run cd /var/www/html
+      Remove present file by sudo rm index.html
+13. run cd /vagrant
+14. for dashboard---->    (if single file)           sudo cp index.html /var/www/html
+
+
+     for AJAX POST (If multiple file)                   sudo cp -r file_names/* /var/www/html

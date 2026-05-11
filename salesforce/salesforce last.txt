@@ -1,0 +1,266 @@
+Project Overview
+Objects Required
+1. Property
+
+Stores house/flat details.
+
+2. Tenant
+
+Stores renter details.
+
+Relationship:
+
+One Property → Many Tenants
+STEP 1 — Open Salesforce Setup
+
+From your current Salesforce page:
+
+Click ⚙️ Gear Icon
+Click Setup
+STEP 2 — Create Property Object
+
+Search:
+Object Manager
+
+Then:
+
+Click Object Manager
+Click Create
+Select Custom Object
+
+Fill details:
+
+Field	Value
+Label	Property
+Plural Label	Properties
+Record Name	Property Name
+Data Type	Text
+
+Enable:
+
+Allow Reports
+Allow Activities
+
+Click Save
+
+STEP 3 — Create Fields for Property
+
+Open:
+Fields & Relationships → New
+
+Create these fields one by one.
+
+A) Property ID
+Option	Value
+Data Type	Auto Number
+Field Label	Property ID
+Display Format	PRO-{0000}
+
+Save.
+
+B) Property Type
+Option	Value
+Data Type	Picklist
+Label	Property Type
+
+Values:
+
+Flat
+House
+Apartment
+Villa
+Shop
+
+Save.
+
+C) Address
+Option	Value
+Data Type	Text Area
+Label	Address
+
+Save.
+
+D) Rent Amount
+Option	Value
+Data Type	Currency
+Label	Rent Amount
+
+Save.
+
+E) Status
+Option	Value
+Data Type	Picklist
+Label	Status
+
+Values:
+
+Available
+Rented
+
+Save.
+
+STEP 4 — Create Tenant Object
+
+Again:
+
+Object Manager → Create → Custom Object
+
+Fill:
+
+Field	Value
+Label	Tenant
+Plural Label	Tenants
+Record Name	Tenant Name
+Data Type	Text
+
+Save.
+
+STEP 5 — Create Fields for Tenant
+A) Tenant ID
+Option	Value
+Type	Auto Number
+Label	Tenant ID
+Format	TEN-{0000}
+
+Save.
+
+B) Phone Number
+Option	Value
+Type	Phone
+Label	Phone Number
+
+Save.
+
+C) Email
+Option	Value
+Type	Email
+Label	Email
+
+Save.
+
+D) Move In Date
+Option	Value
+Type	Date
+Label	Move In Date
+
+Save.
+
+STEP 6 — Create Relationship
+
+Now create:
+Tenant → Property relationship
+
+Inside Tenant object:
+
+Fields & Relationships → New
+
+Select:
+
+Lookup Relationship
+
+Related To:
+
+Property
+
+Next → Next → Save
+
+This creates:
+
+One Property
+Many Tenants
+
+Exactly as required in your project.
+
+STEP 7 — Create Tabs
+
+Search:
+Tabs
+
+Create:
+
+Property Tab
+Tenant Tab
+
+Choose icons and save.
+
+STEP 8 — Create Salesforce App
+
+Search:
+App Manager
+
+Then:
+
+Click New Lightning App
+
+App Name:
+
+Rental Property Management
+
+Add:
+
+Property Tab
+Tenant Tab
+Reports
+Dashboards
+
+Finish.
+
+STEP 9 — Add Sample Records
+
+Open App Launcher (9 dots).
+
+Open your app.
+
+Add Property Record
+
+Example:
+
+Field	Value
+Property Name	Green Villa
+Property Type	Villa
+Address	Pune
+Rent Amount	25000
+Status	Available
+Add Tenant Record
+Field	Value
+Tenant Name	Rahul Sharma
+Phone	9876543210
+Email	rahul@gmail.com
+
+Move In Date	Today
+Property	Green Villa
+STEP 10 — Create Reports
+
+Search:
+Reports
+
+Create:
+
+1. Available Properties Report
+
+Filter:
+Status = Available
+
+2. Rented Properties Report
+
+Filter:
+Status = Rented
+
+3. Tenant Details Report
+
+Include:
+
+Tenant Name
+Property
+Move In Date
+STEP 11 — Create Dashboard
+
+Search:
+Dashboards
+
+Create charts/components:
+
+Total Properties
+Total Tenants
+Available Houses
+Occupied Houses

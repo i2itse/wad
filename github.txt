@@ -1,0 +1,42 @@
+1)git --version
+
+2)git config --global user.name "Your Name"
+  git config --global user.email "yourmail@gmail.com"
+  git config --list
+
+3)mkdir MyApp
+  cd MyApp
+  notepad index.html
+
+ paste the code in notepad
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Application</title>
+</head>
+<body>
+
+    <h1>Welcome to My GitHub Project</h1>
+
+    <p>This is my sample application.</p>
+
+</body>
+</html>
+
+4)git init
+
+5)git add .
+
+6)git commit -m "Initial Commit"
+
+7)Create Repository on GitHub
+
+8)git remote add origin https://github.com/yourusername/myapp.git
+  replace yourusername with actual GitHub username
+
+9)git branch -M main
+  git push -u origin main
+
+10) verify commit:-
+     
+

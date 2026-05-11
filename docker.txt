@@ -1,0 +1,27 @@
+sudo apt install docker.io
+
+docker -v
+
+sudo docker images
+
+sudo docker ps
+
+sudo docker pull python:3.14.4-bookworm  (it takes time let all download)
+
+sudo docker run -dit --name py python:3.14.4-bookworm /bin/bash
+
+sudo docker exec -it py python3
+
+">>>" like this will open when we run the upper command then write the pyhton code for add 
+a=10
+b=12
+c=a+b
+print(c)
+
+type exit 
+
+sudo docker stop (stop container_id)
+
+sudo docker container rm (container_id)
+
+

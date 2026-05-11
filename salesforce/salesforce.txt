@@ -1,0 +1,30 @@
+login salesforce dev edition
+
+1) setting > setup > object manager > new custom obj
+
+2) create object and its plurals
+
+  scroll and press (save and new)
+
+   ##create minimum 2 objs
+
+3) fields and relationships
+
+  
+  for imp fields like for book its author is imp so check (always req a value in this field)
+  select obj datatype 
+
+
+4)tab creation 
+ 
+ setting > setup > search (tabs) in quick find > custom obj tabs and select any 
+
+5) app creation
+
+ search (app manager) in quick find > quick lightning app and fill info,then add diff tabs,and select system administrator
+
+6) 
+
+to open app in top left below the salesforce logo click dots and enter the app name
+
+now enter the records

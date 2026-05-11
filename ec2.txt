@@ -1,0 +1,21 @@
+1. Launch instances
+
+2. Enter name  select ubuntu and select ubuntu 24
+3. Create new key pair
+4. Check http options
+5. Click on instance public ip
+
+6. Opem git bash terminal and run (chmod 400 file_name.pem)
+7. run (ssh -i file_name.pem ubuntu@publicip) 
+8. sudo apt update
+9. sudo apt install apache2 -y
+10. Open new terminal and run scp -i file_name.pem website.zip ubuntu@pubicip:/home/ubuntu
+11. check with (ls) on the first terminal if file is there.
+11. Open 1st terminal and run (sudo apt install unzip) and then run (unzip website.zip)
+12. Run cd /var/www/html
+13. run sudo rm index.html
+14. Run cd ~
+15. run (ls)
+18  sudo cp -r frozenyogurtshop/* /var/www/html
+19 and paste the ip on browser
+

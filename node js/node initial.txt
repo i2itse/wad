@@ -1,0 +1,10 @@
+1) create a folder on desktop and open it in vs code terminal
+   npm init -y
+   npm install express
+2)create a new folder "public"
+  inside public create 2 files 
+  index.html
+  server.js 
+
+ paste the content from the folder
+

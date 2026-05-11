@@ -1,0 +1,56 @@
+1. Launch instances
+
+2. Enter name  select ubuntu and select ubuntu 24
+3. Create new key pair
+4. Check http options
+5. Click on instance public ip
+
+6. Opem git bash terminal and run (chmod 400 file_name.pem)
+7. run (ssh -i file_name.pem ubuntu@publicip) 
+8. sudo apt update
+9. sudo apt install apache2 -y
+10. Open new terminal and run scp -i file_name.pem website.zip ubuntu@pubicip:/home/ubuntu
+11. check with (ls) on the first terminal if file is there.
+11. Open 1st terminal and run (sudo apt install unzip) and then run (unzip website.zip)
+
+
+7) 
+
+sudo apt install nodejs npm -y
+
+8) 
+
+
+cd Lab6\ Node/
+
+npm install express
+
+sudo npm install -g pm2
+
+pm2 start server.js
+
+
+if error like script not found occur paste >>
+
+cd "Lab6 Node"
+
+pm2 start server.js
+
+9)
+
+inbound rules on ec2 platform
+
+security  >  security groups link  >  edit inbound rules > add rule > port range3000 > 0.0.0.0/0
+
+go to browser type>> 
+ ip adderss:3000
+                     
+
+
+
+
+
+
+
+
+

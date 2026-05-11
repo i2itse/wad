@@ -1,0 +1,117 @@
+1) create a new folder and drag and drop it to vs code 
+   open terminal 
+   npm init (press enter until "yes")
+
+2) create new connection on mongo db compass with default settings 
+    press "connect"
+  open terminal on mondo db compass 
+ -show dbs
+ -use student
+ -db.createCollection('profile')
+ -db.profile.insertOne({
+    name: "Rohit",
+    email: "rohit@gmail.com",
+    city: "Nashik"
+})
+  click FIND
+
+
+3) create a file mongodb.js 
+   npm install mongodb
+   npm install express 
+
+now paste the entire code from the folder 
+
+const { MongoClient } = require('mongodb');
+
+const url = 'mongodb://localhost:27017';
+const database = 'student';
+const client = new MongoClient(url);
+
+async function dbConnect() {
+    const result = await client.connect();
+    const db = result.db(database);
+    return db.collection('profile');
+}
+
+module.exports = dbConnect;
+
+4) create a file index.js
+
+paste the entire code from the folder 
+
+
+
+const dbConnect = require('./mongodb');
+const express = require('express');
+const app = express();
+app.use(express.json());
+// Get API
+app.get('/getData', async (req, res) => {
+    let result = await dbConnect();
+    result = await result.find().toArray();
+    res.send(result);
+});
+
+//post API
+app.post('/insertData', async (req, res) => {
+    let result = await dbConnect();
+    result = await result.insertOne(req.body);
+    res.send("Data Inserted Successfully");
+});
+
+//put API
+app.put('/updateData/:name', async (req, res) => {
+    let result = await dbConnect();
+
+    result = await result.updateOne(
+        { name: req.params.name },
+        { $set: req.body }
+    );
+
+    res.send("Data Updated Successfully");
+});
+
+//delete API
+app.delete('/deleteData/:name', async (req, res) => {
+    let result = await dbConnect();
+
+    result = await result.deleteOne({
+        name: req.params.name
+    });
+
+    res.send("Data Deleted Successfully");
+});
+app.listen(3000);
+
+
+open terminal - node index.js
+
+
+5) open postman 
+
+1) GET =  type localhost:3000/getData 
+     click SEND
+
+2)POST = type localhost:3000/insertData
+     click BODY - raw - JSON 
+     {
+        "name":"sam",
+        "email":"sam@gmail.com",
+        "city":"Nagpur"
+     } 
+paste the content in the box provided below 
+    click SEND
+
+3)PUT = type localhost:3000/insertData/Rohit
+     click BODY - raw - JSON 
+     {
+        "name":"Rohit",
+        "email":"rohit@gmail.com",
+        "city":"Mumbai"
+     } 
+
+4) DELETE = ype localhost:3000/deleteData/Rohit
+   Click SEND
+
+
